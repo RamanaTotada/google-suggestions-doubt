@@ -6,11 +6,10 @@ import './index.css'
 class GoogleSuggestions extends Component {
   state = {
     searchInput: '',
-    suggestionUpdate: '',
   }
 
   updateSearchInput = value => {
-    this.setState({suggestionUpdate: value})
+    this.setState({searchInput: value})
   }
 
   onChangeSearchInput = event => {
@@ -20,7 +19,7 @@ class GoogleSuggestions extends Component {
   }
 
   render() {
-    const {searchInput, suggestionUpdate} = this.state
+    const {searchInput} = this.state
     const {suggestionsList} = this.props
 
     const searchResults = suggestionsList.filter(eachSuggestion =>
@@ -48,7 +47,7 @@ class GoogleSuggestions extends Component {
                 type="search"
                 className="search-input"
                 placeholder="Search Google"
-                value={suggestionUpdate}
+                value={searchInput}
                 onChange={this.onChangeSearchInput}
               />
             </div>
